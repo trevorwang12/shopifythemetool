@@ -55,14 +55,14 @@ export const buildReleasePipeline = (args: string[]) => {
   return [
     sanityCheck(skipSanityCheck),
     initialMessaging,
-    createReleaseBranch,
+    // createReleaseBranch,
     locateAllPkgJsons,
     buildPackageJsonMap,
     patchBumpDependants,
     setChangesetStatus,
     changesetVersion,
     commitPackageVersionBumps(statusProperty),
-    pushReleaseBranch,
+    // pushReleaseBranch,
     finalMessaging(releaseBranchName, statusProperty),
   ] as StageFunction[];
 };

@@ -1,6 +1,9 @@
 name: Release Workflow
 
-on: workflow_dispatch
+on:
+  push:
+    branches:
+      - main
 
 env:
   VSCE_PAT: ${{ secrets.VSCE_PAT }}
@@ -31,15 +34,28 @@ jobs:
         env:
           NODE_ENV: production
 
-      - name: Publish to npm
+      - name: Get Date
+        id: date
+        run: echo "date=$(date +'%Y-%m-%d')" >> "$GITHUB_OUTPUT"
+
+      - name: Open PR for new release or publish to npm
         id: changesets
         uses: changesets/action@v1
         with:
           publish: yarn changeset publish
+          version: yarn release
+          title: 'Theme Tools Release'
+          commit: Theme Tools Release: ${{ steps.date.outputs.date }}
           createGithubRelease: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: VS Code Marketplace publish
+        if: |
+          steps.changesets.outputs.published == 'true' &&
+          contains(
+            fromJSON(steps.changesets.outputs.publishedPackages.*.name),
+            'theme-check-vscode'
+          ))
         run: yarn publish:vsce
