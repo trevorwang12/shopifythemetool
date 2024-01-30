@@ -1,0 +1,17 @@
+{
+  "name": "@shopify/text-search",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "license": "MIT",
+  "scripts": {
+    "build": "yarn build:ts",
+    "build:ci": "yarn build",
+    "build:ts": "tsc -b tsconfig.json",
+    "test": "vitest",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "idb": "^8.0.0"
+  }
+}

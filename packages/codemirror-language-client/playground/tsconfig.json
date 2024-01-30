@@ -13,12 +13,14 @@
     "resolveJsonModule": true,
     "paths": {
       "@shopify/codemirror-language-client": ["../src"],
-      "@shopify/theme-language-server-browser": ["../../theme-language-server-browser/src"]
+      "@shopify/theme-language-server-browser": ["../../theme-language-server-browser/src"],
+      "@shopify/text-search": ["../../text-search/src"]
     }
   },
   "references": [
     { "path": ".." },
-    { "path": "../../theme-language-server-browser" }
+    { "path": "../../theme-language-server-browser" },
+    { "path": "../../text-search" }
   ]
 }
 

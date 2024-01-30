@@ -9,6 +9,13 @@ import { CodeMirrorLanguageClient } from '@shopify/codemirror-language-client';
 import * as SetFileTreeNotification from './SetFileTreeNotification';
 import * as SetDefaultTranslationsNotification from './SetDefaultTranslationsNotification';
 import { MarkupContent } from 'vscode-languageserver-protocol';
+import {
+  InMemoryFileSystem,
+  createIndexedDbFileSystem,
+  LayeredFileSystem,
+  MockIntegrityManager,
+  createFile,
+} from '@shopify/text-search';
 
 const md = new MarkdownIt();
 
@@ -24,7 +31,15 @@ const exampleTemplate = `<!doctype html>
   </body>
 </html>`;
 
-async function main() {
+async function main(window: any) {
+  const imfs = new InMemoryFileSystem();
+  const idbfs = await createIndexedDbFileSystem('my-theme');
+  const fs = new LayeredFileSystem([imfs, idbfs], new MockIntegrityManager());
+  window.imfs = imfs;
+  window.idbfs = idbfs;
+  window.fs = fs;
+  window.createFile = createFile;
+
   const worker = new Worker(new URL('./language-server-worker.ts', import.meta.url));
 
   const client = new CodeMirrorLanguageClient(
@@ -96,4 +111,4 @@ async function main() {
   });
 }
 
-main();
+main(window);
