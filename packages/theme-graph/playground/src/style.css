@@ -126,4 +126,5 @@ button:focus-visible {
 
 #tooltip {
   background-color: #213547;
+  pointer-events: none;
 }
