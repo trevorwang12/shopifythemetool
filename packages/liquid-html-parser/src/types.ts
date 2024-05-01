@@ -103,3 +103,7 @@ export const nonTraversableProperties = new Set([
   'firstChild',
   'lastChild',
 ]);
+/** A normalized absolute path used as an index type in records, assumed posix style */
+export type AbsolutePath =
+  string; /** A relative path assumed to be from the root of a theme, assumed posix style */
+export type RootRelativePath = string;

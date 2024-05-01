@@ -1,0 +1,19 @@
+{
+  "extends": "./tsconfig.json",
+  "include": [
+    "./src/**/*.ts",
+    "./src/**/*.json"
+  ],
+  "exclude": [
+    "node_modules",
+    "src/**/*.spec.ts"
+  ],
+  "references": [
+    {
+      "path": "../theme-language-server-common/src/tsconfig.build.json"
+    },
+    {
+      "path": "../liquid-html-parser/tsconfig.build.json"
+    },
+  ]
+}

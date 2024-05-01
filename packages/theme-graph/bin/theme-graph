@@ -1,0 +1,21 @@
+#!/usr/bin/env node
+
+const {buildThemeGraph, serializeThemeGraph} = require('@shopify/theme-graph');
+const path = require('path');
+
+async function main(root) {
+  if (!root) {
+    console.error('Usage: theme-graph <path-to-theme-directory>');
+    process.exit(1);
+  }
+
+  if (!path.isAbsolute(root)) {
+    root = path.resolve(process.cwd(), root);
+  }
+
+  const graph = await buildThemeGraph(root);
+  const serializedGraph = serializeThemeGraph(graph);
+  console.log(JSON.stringify(serializedGraph));
+}
+
+main(process.argv[2]);

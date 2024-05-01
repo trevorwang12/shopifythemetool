@@ -1,0 +1,1662 @@
+{
+  "nodes": [
+    {
+      "path": "templates/404.json",
+      "type": "JSON",
+      "kind": "template"
+    },
+    {
+      "path": "templates/article.json",
+      "type": "JSON",
+      "kind": "template"
+    },
+    {
+      "path": "templates/blog.json",
+      "type": "JSON",
+      "kind": "template"
+    },
+    {
+      "path": "templates/cart.json",
+      "type": "JSON",
+      "kind": "template"
+    },
+    {
+      "path": "templates/collection.json",
+      "type": "JSON",
+      "kind": "template"
+    },
+    {
+      "path": "templates/customers/account.json",
+      "type": "JSON",
+      "kind": "template"
+    },
+    {
+      "path": "templates/customers/activate_account.json",
+      "type": "JSON",
+      "kind": "template"
+    },
+    {
+      "path": "templates/customers/addresses.json",
+      "type": "JSON",
+      "kind": "template"
+    },
+    {
+      "path": "templates/customers/login.json",
+      "type": "JSON",
+      "kind": "template"
+    },
+    {
+      "path": "templates/customers/order.json",
+      "type": "JSON",
+      "kind": "template"
+    },
+    {
+      "path": "templates/customers/register.json",
+      "type": "JSON",
+      "kind": "template"
+    },
+    {
+      "path": "templates/customers/reset_password.json",
+      "type": "JSON",
+      "kind": "template"
+    },
+    {
+      "path": "templates/gift_card.liquid",
+      "type": "Liquid",
+      "kind": "template"
+    },
+    {
+      "path": "templates/index.json",
+      "type": "JSON",
+      "kind": "template"
+    },
+    {
+      "path": "templates/list-collections.json",
+      "type": "JSON",
+      "kind": "template"
+    },
+    {
+      "path": "templates/page.contact.json",
+      "type": "JSON",
+      "kind": "template"
+    },
+    {
+      "path": "templates/page.json",
+      "type": "JSON",
+      "kind": "template"
+    },
+    {
+      "path": "templates/password.json",
+      "type": "JSON",
+      "kind": "template"
+    },
+    {
+      "path": "templates/product.json",
+      "type": "JSON",
+      "kind": "template"
+    },
+    {
+      "path": "templates/search.json",
+      "type": "JSON",
+      "kind": "template"
+    },
+    {
+      "path": "layout/theme.liquid",
+      "type": "Liquid",
+      "kind": "layout"
+    },
+    {
+      "path": "sections/main-404.liquid",
+      "type": "Liquid",
+      "kind": "section"
+    },
+    {
+      "path": "sections/main-blog.liquid",
+      "type": "Liquid",
+      "kind": "section"
+    },
+    {
+      "path": "sections/main-cart-items.liquid",
+      "type": "Liquid",
+      "kind": "section"
+    },
+    {
+      "path": "sections/main-cart-footer.liquid",
+      "type": "Liquid",
+      "kind": "section"
+    },
+    {
+      "path": "sections/featured-collection.liquid",
+      "type": "Liquid",
+      "kind": "section"
+    },
+    {
+      "path": "sections/main-article.liquid",
+      "type": "Liquid",
+      "kind": "section"
+    },
+    {
+      "path": "sections/main-account.liquid",
+      "type": "Liquid",
+      "kind": "section"
+    },
+    {
+      "path": "sections/main-collection-banner.liquid",
+      "type": "Liquid",
+      "kind": "section"
+    },
+    {
+      "path": "sections/main-collection-product-grid.liquid",
+      "type": "Liquid",
+      "kind": "section"
+    },
+    {
+      "path": "sections/main-activate-account.liquid",
+      "type": "Liquid",
+      "kind": "section"
+    },
+    {
+      "path": "sections/main-addresses.liquid",
+      "type": "Liquid",
+      "kind": "section"
+    },
+    {
+      "path": "sections/main-login.liquid",
+      "type": "Liquid",
+      "kind": "section"
+    },
+    {
+      "path": "sections/main-order.liquid",
+      "type": "Liquid",
+      "kind": "section"
+    },
+    {
+      "path": "sections/main-register.liquid",
+      "type": "Liquid",
+      "kind": "section"
+    },
+    {
+      "path": "snippets/icon-success.liquid",
+      "type": "Liquid",
+      "kind": "snippet"
+    },
+    {
+      "path": "sections/image-banner.liquid",
+      "type": "Liquid",
+      "kind": "section"
+    },
+    {
+      "path": "sections/rich-text.liquid",
+      "type": "Liquid",
+      "kind": "section"
+    },
+    {
+      "path": "sections/collage.liquid",
+      "type": "Liquid",
+      "kind": "section"
+    },
+    {
+      "path": "sections/video.liquid",
+      "type": "Liquid",
+      "kind": "section"
+    },
+    {
+      "path": "sections/multicolumn.liquid",
+      "type": "Liquid",
+      "kind": "section"
+    },
+    {
+      "path": "sections/main-list-collections.liquid",
+      "type": "Liquid",
+      "kind": "section"
+    },
+    {
+      "path": "sections/main-page.liquid",
+      "type": "Liquid",
+      "kind": "section"
+    },
+    {
+      "path": "sections/contact-form.liquid",
+      "type": "Liquid",
+      "kind": "section"
+    },
+    {
+      "path": "sections/main-search.liquid",
+      "type": "Liquid",
+      "kind": "section"
+    },
+    {
+      "path": "sections/main-product.liquid",
+      "type": "Liquid",
+      "kind": "section"
+    },
+    {
+      "path": "sections/image-with-text.liquid",
+      "type": "Liquid",
+      "kind": "section"
+    },
+    {
+      "path": "sections/related-products.liquid",
+      "type": "Liquid",
+      "kind": "section"
+    },
+    {
+      "path": "sections/main-reset-password.liquid",
+      "type": "Liquid",
+      "kind": "section"
+    },
+    {
+      "path": "layout/password.liquid",
+      "type": "Liquid",
+      "kind": "layout"
+    },
+    {
+      "path": "sections/email-signup-banner.liquid",
+      "type": "Liquid",
+      "kind": "section"
+    },
+    {
+      "path": "snippets/article-card.liquid",
+      "type": "Liquid",
+      "kind": "snippet"
+    },
+    {
+      "path": "snippets/pagination.liquid",
+      "type": "Liquid",
+      "kind": "snippet"
+    },
+    {
+      "path": "snippets/meta-tags.liquid",
+      "type": "Liquid",
+      "kind": "snippet"
+    },
+    {
+      "path": "snippets/cart-drawer.liquid",
+      "type": "Liquid",
+      "kind": "snippet"
+    },
+    {
+      "path": "sections/header-group.json",
+      "type": "JSON",
+      "kind": "section-group"
+    },
+    {
+      "path": "sections/footer-group.json",
+      "type": "JSON",
+      "kind": "section-group"
+    },
+    {
+      "path": "snippets/icon-discount.liquid",
+      "type": "Liquid",
+      "kind": "snippet"
+    },
+    {
+      "path": "snippets/card-product.liquid",
+      "type": "Liquid",
+      "kind": "snippet"
+    },
+    {
+      "path": "snippets/icon-caret.liquid",
+      "type": "Liquid",
+      "kind": "snippet"
+    },
+    {
+      "path": "snippets/mask-arch.liquid",
+      "type": "Liquid",
+      "kind": "snippet"
+    },
+    {
+      "path": "snippets/share-button.liquid",
+      "type": "Liquid",
+      "kind": "snippet"
+    },
+    {
+      "path": "snippets/icon-arrow.liquid",
+      "type": "Liquid",
+      "kind": "snippet"
+    },
+    {
+      "path": "snippets/icon-error.liquid",
+      "type": "Liquid",
+      "kind": "snippet"
+    },
+    {
+      "path": "snippets/loading-spinner.liquid",
+      "type": "Liquid",
+      "kind": "snippet"
+    },
+    {
+      "path": "snippets/facets.liquid",
+      "type": "Liquid",
+      "kind": "snippet"
+    },
+    {
+      "path": "snippets/icon-info.liquid",
+      "type": "Liquid",
+      "kind": "snippet"
+    },
+    {
+      "path": "snippets/icon-minus.liquid",
+      "type": "Liquid",
+      "kind": "snippet"
+    },
+    {
+      "path": "snippets/icon-plus.liquid",
+      "type": "Liquid",
+      "kind": "snippet"
+    },
+    {
+      "path": "snippets/icon-remove.liquid",
+      "type": "Liquid",
+      "kind": "snippet"
+    },
+    {
+      "path": "snippets/icon-close.liquid",
+      "type": "Liquid",
+      "kind": "snippet"
+    },
+    {
+      "path": "snippets/icon-play.liquid",
+      "type": "Liquid",
+      "kind": "snippet"
+    },
+    {
+      "path": "snippets/card-collection.liquid",
+      "type": "Liquid",
+      "kind": "snippet"
+    },
+    {
+      "path": "snippets/product-media-gallery.liquid",
+      "type": "Liquid",
+      "kind": "snippet"
+    },
+    {
+      "path": "snippets/price.liquid",
+      "type": "Liquid",
+      "kind": "snippet"
+    },
+    {
+      "path": "snippets/icon-accordion.liquid",
+      "type": "Liquid",
+      "kind": "snippet"
+    },
+    {
+      "path": "snippets/product-variant-picker.liquid",
+      "type": "Liquid",
+      "kind": "snippet"
+    },
+    {
+      "path": "snippets/buy-buttons.liquid",
+      "type": "Liquid",
+      "kind": "snippet"
+    },
+    {
+      "path": "snippets/icon-with-text.liquid",
+      "type": "Liquid",
+      "kind": "snippet"
+    },
+    {
+      "path": "snippets/product-media-modal.liquid",
+      "type": "Liquid",
+      "kind": "snippet"
+    },
+    {
+      "path": "sections/main-password-header.liquid",
+      "type": "Liquid",
+      "kind": "section"
+    },
+    {
+      "path": "sections/main-password-footer.liquid",
+      "type": "Liquid",
+      "kind": "section"
+    },
+    {
+      "path": "snippets/email-signup-banner-background.liquid",
+      "type": "Liquid",
+      "kind": "snippet"
+    },
+    {
+      "path": "snippets/email-signup-banner-background-mobile.liquid",
+      "type": "Liquid",
+      "kind": "snippet"
+    },
+    {
+      "path": "sections/announcement-bar.liquid",
+      "type": "Liquid",
+      "kind": "section"
+    },
+    {
+      "path": "sections/header.liquid",
+      "type": "Liquid",
+      "kind": "section"
+    },
+    {
+      "path": "sections/footer.liquid",
+      "type": "Liquid",
+      "kind": "section"
+    },
+    {
+      "path": "snippets/quantity-input.liquid",
+      "type": "Liquid",
+      "kind": "snippet"
+    },
+    {
+      "path": "snippets/quick-order-list.liquid",
+      "type": "Liquid",
+      "kind": "snippet"
+    },
+    {
+      "path": "snippets/icon-share.liquid",
+      "type": "Liquid",
+      "kind": "snippet"
+    },
+    {
+      "path": "snippets/icon-clipboard.liquid",
+      "type": "Liquid",
+      "kind": "snippet"
+    },
+    {
+      "path": "snippets/icon-close-small.liquid",
+      "type": "Liquid",
+      "kind": "snippet"
+    },
+    {
+      "path": "snippets/swatch-input.liquid",
+      "type": "Liquid",
+      "kind": "snippet"
+    },
+    {
+      "path": "snippets/price-facet.liquid",
+      "type": "Liquid",
+      "kind": "snippet"
+    },
+    {
+      "path": "snippets/icon-filter.liquid",
+      "type": "Liquid",
+      "kind": "snippet"
+    },
+    {
+      "path": "snippets/product-thumbnail.liquid",
+      "type": "Liquid",
+      "kind": "snippet"
+    },
+    {
+      "path": "snippets/icon-3d-model.liquid",
+      "type": "Liquid",
+      "kind": "snippet"
+    },
+    {
+      "path": "snippets/product-variant-options.liquid",
+      "type": "Liquid",
+      "kind": "snippet"
+    },
+    {
+      "path": "snippets/swatch.liquid",
+      "type": "Liquid",
+      "kind": "snippet"
+    },
+    {
+      "path": "snippets/product-media.liquid",
+      "type": "Liquid",
+      "kind": "snippet"
+    },
+    {
+      "path": "snippets/icon-padlock.liquid",
+      "type": "Liquid",
+      "kind": "snippet"
+    },
+    {
+      "path": "snippets/icon-twitter.liquid",
+      "type": "Liquid",
+      "kind": "snippet"
+    },
+    {
+      "path": "snippets/icon-facebook.liquid",
+      "type": "Liquid",
+      "kind": "snippet"
+    },
+    {
+      "path": "snippets/icon-pinterest.liquid",
+      "type": "Liquid",
+      "kind": "snippet"
+    },
+    {
+      "path": "snippets/icon-instagram.liquid",
+      "type": "Liquid",
+      "kind": "snippet"
+    },
+    {
+      "path": "snippets/icon-tiktok.liquid",
+      "type": "Liquid",
+      "kind": "snippet"
+    },
+    {
+      "path": "snippets/icon-tumblr.liquid",
+      "type": "Liquid",
+      "kind": "snippet"
+    },
+    {
+      "path": "snippets/icon-snapchat.liquid",
+      "type": "Liquid",
+      "kind": "snippet"
+    },
+    {
+      "path": "snippets/icon-youtube.liquid",
+      "type": "Liquid",
+      "kind": "snippet"
+    },
+    {
+      "path": "snippets/icon-vimeo.liquid",
+      "type": "Liquid",
+      "kind": "snippet"
+    },
+    {
+      "path": "snippets/gift-card-recipient-form.liquid",
+      "type": "Liquid",
+      "kind": "snippet"
+    },
+    {
+      "path": "snippets/icon-unavailable.liquid",
+      "type": "Liquid",
+      "kind": "snippet"
+    },
+    {
+      "path": "snippets/header-drawer.liquid",
+      "type": "Liquid",
+      "kind": "snippet"
+    },
+    {
+      "path": "snippets/header-search.liquid",
+      "type": "Liquid",
+      "kind": "snippet"
+    },
+    {
+      "path": "snippets/header-dropdown-menu.liquid",
+      "type": "Liquid",
+      "kind": "snippet"
+    },
+    {
+      "path": "snippets/header-mega-menu.liquid",
+      "type": "Liquid",
+      "kind": "snippet"
+    },
+    {
+      "path": "snippets/country-localization.liquid",
+      "type": "Liquid",
+      "kind": "snippet"
+    },
+    {
+      "path": "snippets/language-localization.liquid",
+      "type": "Liquid",
+      "kind": "snippet"
+    },
+    {
+      "path": "snippets/icon-account.liquid",
+      "type": "Liquid",
+      "kind": "snippet"
+    },
+    {
+      "path": "snippets/icon-cart-empty.liquid",
+      "type": "Liquid",
+      "kind": "snippet"
+    },
+    {
+      "path": "snippets/icon-cart.liquid",
+      "type": "Liquid",
+      "kind": "snippet"
+    },
+    {
+      "path": "snippets/cart-notification.liquid",
+      "type": "Liquid",
+      "kind": "snippet"
+    },
+    {
+      "path": "snippets/social-icons.liquid",
+      "type": "Liquid",
+      "kind": "snippet"
+    },
+    {
+      "path": "snippets/progress-bar.liquid",
+      "type": "Liquid",
+      "kind": "snippet"
+    },
+    {
+      "path": "snippets/quick-order-list-row.liquid",
+      "type": "Liquid",
+      "kind": "snippet"
+    },
+    {
+      "path": "snippets/icon-checkmark.liquid",
+      "type": "Liquid",
+      "kind": "snippet"
+    },
+    {
+      "path": "snippets/icon-zoom.liquid",
+      "type": "Liquid",
+      "kind": "snippet"
+    },
+    {
+      "path": "snippets/icon-hamburger.liquid",
+      "type": "Liquid",
+      "kind": "snippet"
+    }
+  ],
+  "edges": [
+    {
+      "source": "templates/404.json",
+      "target": "layout/theme.liquid"
+    },
+    {
+      "source": "templates/404.json",
+      "target": "sections/main-404.liquid"
+    },
+    {
+      "source": "templates/article.json",
+      "target": "layout/theme.liquid"
+    },
+    {
+      "source": "templates/article.json",
+      "target": "sections/main-article.liquid"
+    },
+    {
+      "source": "templates/blog.json",
+      "target": "layout/theme.liquid"
+    },
+    {
+      "source": "templates/blog.json",
+      "target": "sections/main-blog.liquid"
+    },
+    {
+      "source": "templates/cart.json",
+      "target": "layout/theme.liquid"
+    },
+    {
+      "source": "templates/cart.json",
+      "target": "sections/main-cart-items.liquid"
+    },
+    {
+      "source": "templates/cart.json",
+      "target": "sections/main-cart-footer.liquid"
+    },
+    {
+      "source": "templates/cart.json",
+      "target": "sections/featured-collection.liquid"
+    },
+    {
+      "source": "templates/collection.json",
+      "target": "layout/theme.liquid"
+    },
+    {
+      "source": "templates/collection.json",
+      "target": "sections/main-collection-banner.liquid"
+    },
+    {
+      "source": "templates/collection.json",
+      "target": "sections/main-collection-product-grid.liquid"
+    },
+    {
+      "source": "templates/customers/account.json",
+      "target": "layout/theme.liquid"
+    },
+    {
+      "source": "templates/customers/account.json",
+      "target": "sections/main-account.liquid"
+    },
+    {
+      "source": "templates/customers/activate_account.json",
+      "target": "layout/theme.liquid"
+    },
+    {
+      "source": "templates/customers/activate_account.json",
+      "target": "sections/main-activate-account.liquid"
+    },
+    {
+      "source": "templates/customers/addresses.json",
+      "target": "layout/theme.liquid"
+    },
+    {
+      "source": "templates/customers/addresses.json",
+      "target": "sections/main-addresses.liquid"
+    },
+    {
+      "source": "templates/customers/login.json",
+      "target": "layout/theme.liquid"
+    },
+    {
+      "source": "templates/customers/login.json",
+      "target": "sections/main-login.liquid"
+    },
+    {
+      "source": "templates/customers/order.json",
+      "target": "layout/theme.liquid"
+    },
+    {
+      "source": "templates/customers/order.json",
+      "target": "sections/main-order.liquid"
+    },
+    {
+      "source": "templates/customers/register.json",
+      "target": "layout/theme.liquid"
+    },
+    {
+      "source": "templates/customers/register.json",
+      "target": "sections/main-register.liquid"
+    },
+    {
+      "source": "templates/customers/reset_password.json",
+      "target": "layout/theme.liquid"
+    },
+    {
+      "source": "templates/customers/reset_password.json",
+      "target": "sections/main-reset-password.liquid"
+    },
+    {
+      "source": "templates/gift_card.liquid",
+      "target": "snippets/icon-success.liquid"
+    },
+    {
+      "source": "templates/index.json",
+      "target": "layout/theme.liquid"
+    },
+    {
+      "source": "templates/index.json",
+      "target": "sections/image-banner.liquid"
+    },
+    {
+      "source": "templates/index.json",
+      "target": "sections/rich-text.liquid"
+    },
+    {
+      "source": "templates/index.json",
+      "target": "sections/featured-collection.liquid"
+    },
+    {
+      "source": "templates/index.json",
+      "target": "sections/collage.liquid"
+    },
+    {
+      "source": "templates/index.json",
+      "target": "sections/video.liquid"
+    },
+    {
+      "source": "templates/index.json",
+      "target": "sections/multicolumn.liquid"
+    },
+    {
+      "source": "templates/list-collections.json",
+      "target": "layout/theme.liquid"
+    },
+    {
+      "source": "templates/list-collections.json",
+      "target": "sections/main-list-collections.liquid"
+    },
+    {
+      "source": "templates/page.contact.json",
+      "target": "layout/theme.liquid"
+    },
+    {
+      "source": "templates/page.contact.json",
+      "target": "sections/main-page.liquid"
+    },
+    {
+      "source": "templates/page.contact.json",
+      "target": "sections/contact-form.liquid"
+    },
+    {
+      "source": "templates/page.json",
+      "target": "layout/theme.liquid"
+    },
+    {
+      "source": "templates/page.json",
+      "target": "sections/main-page.liquid"
+    },
+    {
+      "source": "templates/password.json",
+      "target": "layout/password.liquid"
+    },
+    {
+      "source": "templates/password.json",
+      "target": "sections/email-signup-banner.liquid"
+    },
+    {
+      "source": "templates/product.json",
+      "target": "layout/theme.liquid"
+    },
+    {
+      "source": "templates/product.json",
+      "target": "sections/main-product.liquid"
+    },
+    {
+      "source": "templates/product.json",
+      "target": "sections/image-with-text.liquid"
+    },
+    {
+      "source": "templates/product.json",
+      "target": "sections/multicolumn.liquid"
+    },
+    {
+      "source": "templates/product.json",
+      "target": "sections/related-products.liquid"
+    },
+    {
+      "source": "templates/search.json",
+      "target": "layout/theme.liquid"
+    },
+    {
+      "source": "templates/search.json",
+      "target": "sections/main-search.liquid"
+    },
+    {
+      "source": "layout/theme.liquid",
+      "target": "snippets/meta-tags.liquid"
+    },
+    {
+      "source": "layout/theme.liquid",
+      "target": "snippets/cart-drawer.liquid"
+    },
+    {
+      "source": "layout/theme.liquid",
+      "target": "sections/header-group.json"
+    },
+    {
+      "source": "layout/theme.liquid",
+      "target": "sections/footer-group.json"
+    },
+    {
+      "source": "sections/main-blog.liquid",
+      "target": "snippets/article-card.liquid"
+    },
+    {
+      "source": "sections/main-blog.liquid",
+      "target": "snippets/pagination.liquid"
+    },
+    {
+      "source": "sections/main-cart-items.liquid",
+      "target": "snippets/icon-discount.liquid"
+    },
+    {
+      "source": "sections/main-cart-items.liquid",
+      "target": "snippets/loading-spinner.liquid"
+    },
+    {
+      "source": "sections/main-cart-items.liquid",
+      "target": "snippets/icon-info.liquid"
+    },
+    {
+      "source": "sections/main-cart-items.liquid",
+      "target": "snippets/icon-minus.liquid"
+    },
+    {
+      "source": "sections/main-cart-items.liquid",
+      "target": "snippets/icon-plus.liquid"
+    },
+    {
+      "source": "sections/main-cart-items.liquid",
+      "target": "snippets/icon-remove.liquid"
+    },
+    {
+      "source": "sections/main-cart-items.liquid",
+      "target": "snippets/icon-close.liquid"
+    },
+    {
+      "source": "sections/main-cart-footer.liquid",
+      "target": "snippets/icon-discount.liquid"
+    },
+    {
+      "source": "sections/featured-collection.liquid",
+      "target": "snippets/card-product.liquid"
+    },
+    {
+      "source": "sections/featured-collection.liquid",
+      "target": "snippets/icon-caret.liquid"
+    },
+    {
+      "source": "sections/featured-collection.liquid",
+      "target": "snippets/mask-arch.liquid"
+    },
+    {
+      "source": "sections/main-article.liquid",
+      "target": "snippets/share-button.liquid"
+    },
+    {
+      "source": "sections/main-article.liquid",
+      "target": "snippets/icon-arrow.liquid"
+    },
+    {
+      "source": "sections/main-article.liquid",
+      "target": "snippets/pagination.liquid"
+    },
+    {
+      "source": "sections/main-article.liquid",
+      "target": "snippets/icon-error.liquid"
+    },
+    {
+      "source": "sections/main-article.liquid",
+      "target": "snippets/icon-success.liquid"
+    },
+    {
+      "source": "sections/main-collection-product-grid.liquid",
+      "target": "snippets/icon-caret.liquid"
+    },
+    {
+      "source": "sections/main-collection-product-grid.liquid",
+      "target": "snippets/loading-spinner.liquid"
+    },
+    {
+      "source": "sections/main-collection-product-grid.liquid",
+      "target": "snippets/facets.liquid"
+    },
+    {
+      "source": "sections/main-collection-product-grid.liquid",
+      "target": "snippets/card-product.liquid"
+    },
+    {
+      "source": "sections/main-collection-product-grid.liquid",
+      "target": "snippets/pagination.liquid"
+    },
+    {
+      "source": "sections/main-collection-product-grid.liquid",
+      "target": "snippets/mask-arch.liquid"
+    },
+    {
+      "source": "sections/collage.liquid",
+      "target": "snippets/card-product.liquid"
+    },
+    {
+      "source": "sections/collage.liquid",
+      "target": "snippets/card-collection.liquid"
+    },
+    {
+      "source": "sections/collage.liquid",
+      "target": "snippets/icon-play.liquid"
+    },
+    {
+      "source": "sections/collage.liquid",
+      "target": "snippets/icon-close.liquid"
+    },
+    {
+      "source": "sections/video.liquid",
+      "target": "snippets/icon-play.liquid"
+    },
+    {
+      "source": "sections/multicolumn.liquid",
+      "target": "snippets/icon-arrow.liquid"
+    },
+    {
+      "source": "sections/multicolumn.liquid",
+      "target": "snippets/icon-caret.liquid"
+    },
+    {
+      "source": "sections/main-list-collections.liquid",
+      "target": "snippets/card-collection.liquid"
+    },
+    {
+      "source": "sections/main-list-collections.liquid",
+      "target": "snippets/pagination.liquid"
+    },
+    {
+      "source": "sections/contact-form.liquid",
+      "target": "snippets/icon-success.liquid"
+    },
+    {
+      "source": "sections/contact-form.liquid",
+      "target": "snippets/icon-error.liquid"
+    },
+    {
+      "source": "sections/main-search.liquid",
+      "target": "snippets/loading-spinner.liquid"
+    },
+    {
+      "source": "sections/main-search.liquid",
+      "target": "snippets/icon-caret.liquid"
+    },
+    {
+      "source": "sections/main-search.liquid",
+      "target": "snippets/facets.liquid"
+    },
+    {
+      "source": "sections/main-search.liquid",
+      "target": "snippets/card-product.liquid"
+    },
+    {
+      "source": "sections/main-search.liquid",
+      "target": "snippets/article-card.liquid"
+    },
+    {
+      "source": "sections/main-search.liquid",
+      "target": "snippets/pagination.liquid"
+    },
+    {
+      "source": "sections/main-search.liquid",
+      "target": "snippets/mask-arch.liquid"
+    },
+    {
+      "source": "sections/main-product.liquid",
+      "target": "snippets/product-media-gallery.liquid"
+    },
+    {
+      "source": "sections/main-product.liquid",
+      "target": "snippets/price.liquid"
+    },
+    {
+      "source": "sections/main-product.liquid",
+      "target": "snippets/icon-accordion.liquid"
+    },
+    {
+      "source": "sections/main-product.liquid",
+      "target": "snippets/icon-caret.liquid"
+    },
+    {
+      "source": "sections/main-product.liquid",
+      "target": "snippets/loading-spinner.liquid"
+    },
+    {
+      "source": "sections/main-product.liquid",
+      "target": "snippets/icon-minus.liquid"
+    },
+    {
+      "source": "sections/main-product.liquid",
+      "target": "snippets/icon-plus.liquid"
+    },
+    {
+      "source": "sections/main-product.liquid",
+      "target": "snippets/share-button.liquid"
+    },
+    {
+      "source": "sections/main-product.liquid",
+      "target": "snippets/product-variant-picker.liquid"
+    },
+    {
+      "source": "sections/main-product.liquid",
+      "target": "snippets/buy-buttons.liquid"
+    },
+    {
+      "source": "sections/main-product.liquid",
+      "target": "snippets/card-product.liquid"
+    },
+    {
+      "source": "sections/main-product.liquid",
+      "target": "snippets/icon-with-text.liquid"
+    },
+    {
+      "source": "sections/main-product.liquid",
+      "target": "snippets/icon-arrow.liquid"
+    },
+    {
+      "source": "sections/main-product.liquid",
+      "target": "snippets/product-media-modal.liquid"
+    },
+    {
+      "source": "sections/main-product.liquid",
+      "target": "snippets/icon-close.liquid"
+    },
+    {
+      "source": "sections/related-products.liquid",
+      "target": "snippets/card-product.liquid"
+    },
+    {
+      "source": "sections/related-products.liquid",
+      "target": "snippets/mask-arch.liquid"
+    },
+    {
+      "source": "layout/password.liquid",
+      "target": "snippets/meta-tags.liquid"
+    },
+    {
+      "source": "layout/password.liquid",
+      "target": "sections/main-password-header.liquid"
+    },
+    {
+      "source": "layout/password.liquid",
+      "target": "sections/main-password-footer.liquid"
+    },
+    {
+      "source": "sections/email-signup-banner.liquid",
+      "target": "snippets/email-signup-banner-background.liquid"
+    },
+    {
+      "source": "sections/email-signup-banner.liquid",
+      "target": "snippets/email-signup-banner-background-mobile.liquid"
+    },
+    {
+      "source": "sections/email-signup-banner.liquid",
+      "target": "snippets/icon-arrow.liquid"
+    },
+    {
+      "source": "sections/email-signup-banner.liquid",
+      "target": "snippets/icon-error.liquid"
+    },
+    {
+      "source": "sections/email-signup-banner.liquid",
+      "target": "snippets/icon-success.liquid"
+    },
+    {
+      "source": "snippets/pagination.liquid",
+      "target": "snippets/icon-caret.liquid"
+    },
+    {
+      "source": "snippets/cart-drawer.liquid",
+      "target": "snippets/icon-close.liquid"
+    },
+    {
+      "source": "snippets/cart-drawer.liquid",
+      "target": "snippets/card-collection.liquid"
+    },
+    {
+      "source": "snippets/cart-drawer.liquid",
+      "target": "snippets/icon-discount.liquid"
+    },
+    {
+      "source": "snippets/cart-drawer.liquid",
+      "target": "snippets/loading-spinner.liquid"
+    },
+    {
+      "source": "snippets/cart-drawer.liquid",
+      "target": "snippets/icon-minus.liquid"
+    },
+    {
+      "source": "snippets/cart-drawer.liquid",
+      "target": "snippets/icon-plus.liquid"
+    },
+    {
+      "source": "snippets/cart-drawer.liquid",
+      "target": "snippets/icon-remove.liquid"
+    },
+    {
+      "source": "snippets/cart-drawer.liquid",
+      "target": "snippets/icon-info.liquid"
+    },
+    {
+      "source": "snippets/cart-drawer.liquid",
+      "target": "snippets/icon-caret.liquid"
+    },
+    {
+      "source": "sections/header-group.json",
+      "target": "sections/announcement-bar.liquid"
+    },
+    {
+      "source": "sections/header-group.json",
+      "target": "sections/header.liquid"
+    },
+    {
+      "source": "sections/footer-group.json",
+      "target": "sections/footer.liquid"
+    },
+    {
+      "source": "snippets/card-product.liquid",
+      "target": "snippets/price.liquid"
+    },
+    {
+      "source": "snippets/card-product.liquid",
+      "target": "snippets/icon-close.liquid"
+    },
+    {
+      "source": "snippets/card-product.liquid",
+      "target": "snippets/icon-arrow.liquid"
+    },
+    {
+      "source": "snippets/card-product.liquid",
+      "target": "snippets/loading-spinner.liquid"
+    },
+    {
+      "source": "snippets/card-product.liquid",
+      "target": "snippets/icon-plus.liquid"
+    },
+    {
+      "source": "snippets/card-product.liquid",
+      "target": "snippets/quantity-input.liquid"
+    },
+    {
+      "source": "snippets/card-product.liquid",
+      "target": "snippets/quick-order-list.liquid"
+    },
+    {
+      "source": "snippets/share-button.liquid",
+      "target": "snippets/icon-share.liquid"
+    },
+    {
+      "source": "snippets/share-button.liquid",
+      "target": "snippets/icon-close.liquid"
+    },
+    {
+      "source": "snippets/share-button.liquid",
+      "target": "snippets/icon-clipboard.liquid"
+    },
+    {
+      "source": "snippets/facets.liquid",
+      "target": "snippets/icon-close-small.liquid"
+    },
+    {
+      "source": "snippets/facets.liquid",
+      "target": "snippets/icon-caret.liquid"
+    },
+    {
+      "source": "snippets/facets.liquid",
+      "target": "snippets/swatch-input.liquid"
+    },
+    {
+      "source": "snippets/facets.liquid",
+      "target": "snippets/price-facet.liquid"
+    },
+    {
+      "source": "snippets/facets.liquid",
+      "target": "snippets/loading-spinner.liquid"
+    },
+    {
+      "source": "snippets/facets.liquid",
+      "target": "snippets/icon-filter.liquid"
+    },
+    {
+      "source": "snippets/facets.liquid",
+      "target": "snippets/icon-close.liquid"
+    },
+    {
+      "source": "snippets/facets.liquid",
+      "target": "snippets/icon-arrow.liquid"
+    },
+    {
+      "source": "snippets/card-collection.liquid",
+      "target": "snippets/icon-arrow.liquid"
+    },
+    {
+      "source": "snippets/product-media-gallery.liquid",
+      "target": "snippets/product-thumbnail.liquid"
+    },
+    {
+      "source": "snippets/product-media-gallery.liquid",
+      "target": "snippets/icon-caret.liquid"
+    },
+    {
+      "source": "snippets/product-media-gallery.liquid",
+      "target": "snippets/icon-3d-model.liquid"
+    },
+    {
+      "source": "snippets/product-media-gallery.liquid",
+      "target": "snippets/icon-play.liquid"
+    },
+    {
+      "source": "snippets/product-variant-picker.liquid",
+      "target": "snippets/product-variant-options.liquid"
+    },
+    {
+      "source": "snippets/product-variant-picker.liquid",
+      "target": "snippets/swatch.liquid"
+    },
+    {
+      "source": "snippets/product-variant-picker.liquid",
+      "target": "snippets/icon-caret.liquid"
+    },
+    {
+      "source": "snippets/buy-buttons.liquid",
+      "target": "snippets/gift-card-recipient-form.liquid"
+    },
+    {
+      "source": "snippets/buy-buttons.liquid",
+      "target": "snippets/loading-spinner.liquid"
+    },
+    {
+      "source": "snippets/buy-buttons.liquid",
+      "target": "snippets/icon-unavailable.liquid"
+    },
+    {
+      "source": "snippets/icon-with-text.liquid",
+      "target": "snippets/icon-accordion.liquid"
+    },
+    {
+      "source": "snippets/product-media-modal.liquid",
+      "target": "snippets/icon-close.liquid"
+    },
+    {
+      "source": "snippets/product-media-modal.liquid",
+      "target": "snippets/product-media.liquid"
+    },
+    {
+      "source": "sections/main-password-header.liquid",
+      "target": "snippets/icon-padlock.liquid"
+    },
+    {
+      "source": "sections/main-password-header.liquid",
+      "target": "snippets/icon-close.liquid"
+    },
+    {
+      "source": "sections/main-password-header.liquid",
+      "target": "snippets/icon-error.liquid"
+    },
+    {
+      "source": "sections/main-password-footer.liquid",
+      "target": "snippets/icon-twitter.liquid"
+    },
+    {
+      "source": "sections/main-password-footer.liquid",
+      "target": "snippets/icon-facebook.liquid"
+    },
+    {
+      "source": "sections/main-password-footer.liquid",
+      "target": "snippets/icon-pinterest.liquid"
+    },
+    {
+      "source": "sections/main-password-footer.liquid",
+      "target": "snippets/icon-instagram.liquid"
+    },
+    {
+      "source": "sections/main-password-footer.liquid",
+      "target": "snippets/icon-tiktok.liquid"
+    },
+    {
+      "source": "sections/main-password-footer.liquid",
+      "target": "snippets/icon-tumblr.liquid"
+    },
+    {
+      "source": "sections/main-password-footer.liquid",
+      "target": "snippets/icon-snapchat.liquid"
+    },
+    {
+      "source": "sections/main-password-footer.liquid",
+      "target": "snippets/icon-youtube.liquid"
+    },
+    {
+      "source": "sections/main-password-footer.liquid",
+      "target": "snippets/icon-vimeo.liquid"
+    },
+    {
+      "source": "sections/announcement-bar.liquid",
+      "target": "snippets/social-icons.liquid"
+    },
+    {
+      "source": "sections/announcement-bar.liquid",
+      "target": "snippets/icon-arrow.liquid"
+    },
+    {
+      "source": "sections/announcement-bar.liquid",
+      "target": "snippets/icon-caret.liquid"
+    },
+    {
+      "source": "sections/announcement-bar.liquid",
+      "target": "snippets/country-localization.liquid"
+    },
+    {
+      "source": "sections/announcement-bar.liquid",
+      "target": "snippets/language-localization.liquid"
+    },
+    {
+      "source": "sections/header.liquid",
+      "target": "snippets/header-drawer.liquid"
+    },
+    {
+      "source": "sections/header.liquid",
+      "target": "snippets/header-search.liquid"
+    },
+    {
+      "source": "sections/header.liquid",
+      "target": "snippets/header-dropdown-menu.liquid"
+    },
+    {
+      "source": "sections/header.liquid",
+      "target": "snippets/header-mega-menu.liquid"
+    },
+    {
+      "source": "sections/header.liquid",
+      "target": "snippets/country-localization.liquid"
+    },
+    {
+      "source": "sections/header.liquid",
+      "target": "snippets/language-localization.liquid"
+    },
+    {
+      "source": "sections/header.liquid",
+      "target": "snippets/icon-account.liquid"
+    },
+    {
+      "source": "sections/header.liquid",
+      "target": "snippets/icon-cart-empty.liquid"
+    },
+    {
+      "source": "sections/header.liquid",
+      "target": "snippets/icon-cart.liquid"
+    },
+    {
+      "source": "sections/header.liquid",
+      "target": "snippets/cart-notification.liquid"
+    },
+    {
+      "source": "sections/footer.liquid",
+      "target": "snippets/social-icons.liquid"
+    },
+    {
+      "source": "sections/footer.liquid",
+      "target": "snippets/icon-arrow.liquid"
+    },
+    {
+      "source": "sections/footer.liquid",
+      "target": "snippets/icon-error.liquid"
+    },
+    {
+      "source": "sections/footer.liquid",
+      "target": "snippets/icon-success.liquid"
+    },
+    {
+      "source": "sections/footer.liquid",
+      "target": "snippets/country-localization.liquid"
+    },
+    {
+      "source": "sections/footer.liquid",
+      "target": "snippets/language-localization.liquid"
+    },
+    {
+      "source": "snippets/quantity-input.liquid",
+      "target": "snippets/icon-minus.liquid"
+    },
+    {
+      "source": "snippets/quantity-input.liquid",
+      "target": "snippets/icon-plus.liquid"
+    },
+    {
+      "source": "snippets/quantity-input.liquid",
+      "target": "snippets/progress-bar.liquid"
+    },
+    {
+      "source": "snippets/quick-order-list.liquid",
+      "target": "snippets/quick-order-list-row.liquid"
+    },
+    {
+      "source": "snippets/quick-order-list.liquid",
+      "target": "snippets/loading-spinner.liquid"
+    },
+    {
+      "source": "snippets/quick-order-list.liquid",
+      "target": "snippets/icon-remove.liquid"
+    },
+    {
+      "source": "snippets/quick-order-list.liquid",
+      "target": "snippets/icon-checkmark.liquid"
+    },
+    {
+      "source": "snippets/swatch-input.liquid",
+      "target": "snippets/swatch.liquid"
+    },
+    {
+      "source": "snippets/product-thumbnail.liquid",
+      "target": "snippets/icon-play.liquid"
+    },
+    {
+      "source": "snippets/product-thumbnail.liquid",
+      "target": "snippets/icon-3d-model.liquid"
+    },
+    {
+      "source": "snippets/product-thumbnail.liquid",
+      "target": "snippets/icon-zoom.liquid"
+    },
+    {
+      "source": "snippets/product-thumbnail.liquid",
+      "target": "snippets/loading-spinner.liquid"
+    },
+    {
+      "source": "snippets/product-media.liquid",
+      "target": "snippets/icon-3d-model.liquid"
+    },
+    {
+      "source": "snippets/product-media.liquid",
+      "target": "snippets/icon-play.liquid"
+    },
+    {
+      "source": "snippets/gift-card-recipient-form.liquid",
+      "target": "snippets/icon-error.liquid"
+    },
+    {
+      "source": "snippets/header-drawer.liquid",
+      "target": "snippets/icon-hamburger.liquid"
+    },
+    {
+      "source": "snippets/header-drawer.liquid",
+      "target": "snippets/icon-close.liquid"
+    },
+    {
+      "source": "snippets/header-drawer.liquid",
+      "target": "snippets/icon-arrow.liquid"
+    },
+    {
+      "source": "snippets/header-drawer.liquid",
+      "target": "snippets/icon-caret.liquid"
+    },
+    {
+      "source": "snippets/header-drawer.liquid",
+      "target": "snippets/icon-account.liquid"
+    },
+    {
+      "source": "snippets/header-drawer.liquid",
+      "target": "snippets/country-localization.liquid"
+    },
+    {
+      "source": "snippets/header-drawer.liquid",
+      "target": "snippets/language-localization.liquid"
+    },
+    {
+      "source": "snippets/header-drawer.liquid",
+      "target": "snippets/icon-twitter.liquid"
+    },
+    {
+      "source": "snippets/header-drawer.liquid",
+      "target": "snippets/icon-facebook.liquid"
+    },
+    {
+      "source": "snippets/header-drawer.liquid",
+      "target": "snippets/icon-pinterest.liquid"
+    },
+    {
+      "source": "snippets/header-drawer.liquid",
+      "target": "snippets/icon-instagram.liquid"
+    },
+    {
+      "source": "snippets/header-drawer.liquid",
+      "target": "snippets/icon-tiktok.liquid"
+    },
+    {
+      "source": "snippets/header-drawer.liquid",
+      "target": "snippets/icon-tumblr.liquid"
+    },
+    {
+      "source": "snippets/header-drawer.liquid",
+      "target": "snippets/icon-snapchat.liquid"
+    },
+    {
+      "source": "snippets/header-drawer.liquid",
+      "target": "snippets/icon-youtube.liquid"
+    },
+    {
+      "source": "snippets/header-drawer.liquid",
+      "target": "snippets/icon-vimeo.liquid"
+    },
+    {
+      "source": "snippets/header-search.liquid",
+      "target": "snippets/loading-spinner.liquid"
+    },
+    {
+      "source": "snippets/header-dropdown-menu.liquid",
+      "target": "snippets/icon-caret.liquid"
+    },
+    {
+      "source": "snippets/header-mega-menu.liquid",
+      "target": "snippets/icon-caret.liquid"
+    },
+    {
+      "source": "snippets/country-localization.liquid",
+      "target": "snippets/icon-caret.liquid"
+    },
+    {
+      "source": "snippets/country-localization.liquid",
+      "target": "snippets/icon-close.liquid"
+    },
+    {
+      "source": "snippets/country-localization.liquid",
+      "target": "snippets/icon-checkmark.liquid"
+    },
+    {
+      "source": "snippets/language-localization.liquid",
+      "target": "snippets/icon-caret.liquid"
+    },
+    {
+      "source": "snippets/language-localization.liquid",
+      "target": "snippets/icon-checkmark.liquid"
+    },
+    {
+      "source": "snippets/cart-notification.liquid",
+      "target": "snippets/icon-checkmark.liquid"
+    },
+    {
+      "source": "snippets/social-icons.liquid",
+      "target": "snippets/icon-facebook.liquid"
+    },
+    {
+      "source": "snippets/social-icons.liquid",
+      "target": "snippets/icon-instagram.liquid"
+    },
+    {
+      "source": "snippets/social-icons.liquid",
+      "target": "snippets/icon-youtube.liquid"
+    },
+    {
+      "source": "snippets/social-icons.liquid",
+      "target": "snippets/icon-tiktok.liquid"
+    },
+    {
+      "source": "snippets/social-icons.liquid",
+      "target": "snippets/icon-twitter.liquid"
+    },
+    {
+      "source": "snippets/social-icons.liquid",
+      "target": "snippets/icon-pinterest.liquid"
+    },
+    {
+      "source": "snippets/social-icons.liquid",
+      "target": "snippets/icon-snapchat.liquid"
+    },
+    {
+      "source": "snippets/social-icons.liquid",
+      "target": "snippets/icon-tumblr.liquid"
+    },
+    {
+      "source": "snippets/social-icons.liquid",
+      "target": "snippets/icon-vimeo.liquid"
+    },
+    {
+      "source": "snippets/quick-order-list-row.liquid",
+      "target": "snippets/loading-spinner.liquid"
+    },
+    {
+      "source": "snippets/quick-order-list-row.liquid",
+      "target": "snippets/icon-info.liquid"
+    },
+    {
+      "source": "snippets/quick-order-list-row.liquid",
+      "target": "snippets/icon-close.liquid"
+    },
+    {
+      "source": "snippets/quick-order-list-row.liquid",
+      "target": "snippets/quantity-input.liquid"
+    },
+    {
+      "source": "snippets/quick-order-list-row.liquid",
+      "target": "snippets/icon-remove.liquid"
+    }
+  ]
+}
