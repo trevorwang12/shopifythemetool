@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 
-const {buildThemeGraph, serializeThemeGraph} = require('@shopify/theme-graph');
+const { buildThemeGraph, serializeThemeGraph } = require('@shopify/theme-graph');
 const path = require('path');
+const fs = require('fs');
 
 async function main(root) {
   if (!root) {
@@ -13,7 +14,11 @@ async function main(root) {
     root = path.resolve(process.cwd(), root);
   }
 
-  const graph = await buildThemeGraph(root);
+  const graph = await buildThemeGraph(root, {
+    readFile: (path) => fs.promises.readFile(path, 'utf8'),
+    join: path.join,
+    extname: path.extname,
+  });
   const serializedGraph = serializeThemeGraph(graph);
   console.log(JSON.stringify(serializedGraph));
 }

@@ -1,7 +1,7 @@
 import './style.css';
 import * as d3 from 'd3';
 import graph from './graph.json';
-import { SerializableGraph, ThemeGraph } from '@shopify/theme-graph';
+import { SerializableGraph, SerializableNode } from '@shopify/theme-graph';
 
 interface Node extends d3.SimulationNodeDatum {
   type: string;
@@ -18,6 +18,15 @@ interface Link extends d3.SimulationLinkDatum<Node> {
   // target: string; // path
 }
 
+const filters = {
+  js: false,
+  css: false,
+  layout: false,
+};
+
+// Specify the color scale.
+const color = d3.scaleOrdinal(d3.schemeCategory10);
+
 function chart(app: any, graph: SerializableGraph) {
   // Specify the dimensions of the chart.
   let { width, height } = app.getBoundingClientRect();
@@ -31,18 +40,24 @@ function chart(app: any, graph: SerializableGraph) {
       .attr('style', 'max-width: 100%; height: auto;');
   });
 
-  // Specify the color scale.
-  const color = d3.scaleOrdinal(d3.schemeCategory10);
+  const nodes: Node[] = graph.nodes
+    .filter((node) => applyFilters(node))
+    .map((node) => ({
+      ...node,
+      parents: {},
+      dependencies: {},
+    }));
 
-  const nodes: Node[] = graph.nodes.map((node) => ({
-    ...node,
-    parents: {},
-    dependencies: {},
-  }));
-  const links: Link[] = graph.edges.map((edge) => ({
-    ...edge,
-    value: 2,
-  }));
+  const links: Link[] = graph.edges
+    .map((edge) => ({
+      ...edge,
+      value: 2,
+    }))
+    .filter(
+      (link) =>
+        nodes.find((node) => node.path === link.source) &&
+        nodes.find((node) => node.path === link.target),
+    );
 
   links.forEach((link) => bind(link, nodes));
 
@@ -50,10 +65,12 @@ function chart(app: any, graph: SerializableGraph) {
     return d.path;
   }
 
+  const linkForces = d3.forceLink<Node, Link>(links).id(linkAccessor).distance(30);
+
   // Create a simulation with several forces.
   const simulation = d3
     .forceSimulation(nodes)
-    .force('link', d3.forceLink<Node, Link>(links).id(linkAccessor).distance(30))
+    .force('link', linkForces)
     .force('charge', d3.forceManyBody().strength(-200))
     .force('x', d3.forceX())
     .force('y', d3.forceY());
@@ -124,7 +141,7 @@ function chart(app: any, graph: SerializableGraph) {
   }
 
   const tooltip = d3.select('#tooltip');
-  const sidebar = d3.select('#sidebar');
+  const sidebar = d3.select('#sidebar-content');
 
   node
     .on('mouseover', function (event, d) {
@@ -175,8 +192,10 @@ function chart(app: any, graph: SerializableGraph) {
 function bind(link: Link, nodes: Node[]) {
   const source = nodes.find((node) => node.path === link.source)!;
   const target = nodes.find((node) => node.path === link.target)!;
-  source.dependencies[target.path] = target;
-  target.parents[source.path] = source;
+  if (source && target) {
+    source.dependencies[target.path] = target;
+    target.parents[source.path] = source;
+  }
 }
 
 function subgraph(node: Node): Set<Node> {
@@ -207,5 +226,74 @@ function renderToMarkdown(node: Node, indent = 0): string {
     .join('')}`;
 }
 
-const app = document.querySelector<HTMLDivElement>('#app')!;
-app.append(chart(app, graph as SerializableGraph)!);
+function applyFilters(node: SerializableNode) {
+  let filteredOut = false;
+  if (!filters.js && node.type === 'JavaScript') {
+    filteredOut = true;
+  }
+
+  if (!filters.css && node.type === 'CSS') {
+    filteredOut = true;
+  }
+
+  if (!filters.layout && node.kind === 'layout') {
+    filteredOut = true;
+  }
+
+  return !filteredOut;
+}
+
+const graphInput = d3.select<d3.BaseType, HTMLInputElement>('#graph');
+const includeJsInput = d3.select<d3.BaseType, HTMLInputElement>('#show-js');
+const includeCssInput = d3.select<d3.BaseType, HTMLInputElement>('#show-css');
+const includeLayoutInput = d3.select<d3.BaseType, HTMLInputElement>('#show-layout');
+
+graphInput.on('change', function (e) {
+  const files = e.target.files;
+  const file = files[0];
+  if (file) {
+    var reader = new FileReader();
+
+    reader.onload = function (event) {
+      try {
+        inputGraph = JSON.parse(event?.target?.result as any); // Parse the JSON content
+        reset();
+      } catch (e) {
+        console.error('Error parsing JSON!', e);
+      }
+    };
+
+    reader.onerror = function (event) {
+      console.error('File could not be read! Code ' + (event as any).target.error.code);
+    };
+
+    reader.readAsText(file); // Read the file as text
+  } else {
+    alert('No file selected!');
+  }
+});
+
+let inputGraph = null;
+
+function reset() {
+  app.selectAll('*').remove();
+  app.append(() => chart(app.node(), inputGraph ?? (graph as SerializableGraph)));
+}
+
+includeJsInput.on('change', function (e) {
+  filters.js = e.target.checked;
+  reset();
+});
+
+includeCssInput.on('change', function (e) {
+  filters.css = e.target.checked;
+  reset();
+});
+
+includeLayoutInput.on('change', function (e) {
+  filters.layout = e.target.checked;
+  reset();
+});
+
+const app = d3.select<d3.BaseType, HTMLDivElement>('#app');
+app.append(() => chart(app.node(), inputGraph ?? (graph as SerializableGraph)));

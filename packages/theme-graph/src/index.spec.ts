@@ -1,10 +1,10 @@
 import { describe, it, expect } from 'vitest';
 import path from 'node:path';
+import * as fs from 'node:fs';
 
 import {
-  LiquidModuleKind,
   ThemeGraph,
-  ThemeModule,
+  Dependencies,
   bind,
   buildThemeGraph,
   sectionModule,
@@ -15,11 +15,16 @@ import {
 
 const fixturesRoot = path.join(__dirname, '../fixtures');
 const dawn = path.join(fixturesRoot, 'dawn');
+const dependencies: Dependencies = {
+  readFile: (path: string) => fs.promises.readFile(path, 'utf8'),
+  join: path.join,
+  extname: path.extname,
+};
 
 describe('Module: index', () => {
   describe('Unit: buildThemeGraph', () => {
     it('should build a graph of the theme', async () => {
-      const graph = await buildThemeGraph(dawn);
+      const graph = await buildThemeGraph(dawn, dependencies);
       expect(graph).toBeDefined();
     });
   });
@@ -32,15 +37,15 @@ describe('Module: index', () => {
         root: '/path/to/root',
       };
 
-      const template = templateModule(graph, 'templates/index.liquid');
-      const section1 = sectionModule(graph, 'section1');
-      const snippet1 = snippetModule(graph, 'snippet1');
-      const snippet2 = snippetModule(graph, 'snippet2');
+      const template = templateModule(graph, 'templates/index.liquid', dependencies);
+      const section1 = sectionModule(graph, 'section1', dependencies);
+      const snippet1 = snippetModule(graph, 'snippet1', dependencies);
+      const snippet2 = snippetModule(graph, 'snippet2', dependencies);
       bind(template, section1);
       bind(section1, snippet1);
       bind(section1, snippet2);
 
-      const section2 = sectionModule(graph, 'section2');
+      const section2 = sectionModule(graph, 'section2', dependencies);
       bind(template, section2);
 
       graph.entryPoints = [template];

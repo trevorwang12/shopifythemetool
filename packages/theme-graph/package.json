@@ -12,6 +12,9 @@
   "bugs": {
     "url": "https://github.com/shopify/theme-tools/issues"
   },
+  "bin": {
+    "theme-graph": "bin/theme-graph"
+  },
   "license": "MIT",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -24,6 +27,7 @@
     "build:ci": "yarn build",
     "build:ts": "tsc -p tsconfig.build.json",
     "playground": "yarn --cwd ./playground dev",
+    "preplayground": "yarn build && bin/theme-graph-to-playground fixtures/dawn",
     "type-check": "tsc --noEmit"
   },
   "dependencies": {

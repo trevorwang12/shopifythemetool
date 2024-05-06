@@ -6,11 +6,15 @@ import {
   toLiquidAST as parseLiquid,
 } from '@shopify/liquid-html-parser';
 import { SourceCodeType, Visitor, visit } from '@shopify/theme-language-server-common';
-import { promises as fs } from 'node:fs';
-import { join, extname } from 'node:path';
 import { assertNever, getFiles, isInDirectory, isTemplateFile, posixPath, unique } from './utils';
 // import { parse as parseJS } from '@swc/core';
 // import parseJson from 'json-to-ast';
+
+export interface Dependencies {
+  readFile: (path: string) => Promise<string>;
+  join: (...paths: string[]) => string;
+  extname: (path: string) => string;
+}
 
 export interface ThemeGraph {
   entryPoints: ThemeModule[];
@@ -126,7 +130,7 @@ export function serializeThemeGraph(graph: ThemeGraph): SerializableGraph {
   };
 }
 
-export async function buildThemeGraph(root: string = process.cwd()) {
+export async function buildThemeGraph(root: string, dependencies: Dependencies) {
   root = posixPath(root);
   // It starts with a template actually
   const files = await getFiles(root);
@@ -137,19 +141,27 @@ export async function buildThemeGraph(root: string = process.cwd()) {
     root,
   };
 
-  themeGraph.entryPoints = entryPoints.map((entry) => templateModule(themeGraph, entry));
+  themeGraph.entryPoints = entryPoints.map((entry) =>
+    templateModule(themeGraph, entry, dependencies),
+  );
 
-  await Promise.all(themeGraph.entryPoints.map((entry) => traverseModule(entry, themeGraph)));
+  await Promise.all(
+    themeGraph.entryPoints.map((entry) => traverseModule(entry, themeGraph, dependencies)),
+  );
 
   return themeGraph;
 }
 
-export function templateModule(themeGraph: ThemeGraph, path: RootRelativePath): ThemeModule {
+export function templateModule(
+  themeGraph: ThemeGraph,
+  path: RootRelativePath,
+  dependencies: Dependencies,
+): ThemeModule {
   if (themeGraph.modules[path]) {
     return themeGraph.modules[path];
   }
 
-  const extension = extname(path).slice(1);
+  const extension = dependencies.extname(path).slice(1);
   switch (extension) {
     case 'json': {
       return {
@@ -177,8 +189,12 @@ export function templateModule(themeGraph: ThemeGraph, path: RootRelativePath): 
   }
 }
 
-export function sectionModule(themeGraph: ThemeGraph, sectionType: string): LiquidModule {
-  const path = join('sections', `${sectionType}.liquid`);
+export function sectionModule(
+  themeGraph: ThemeGraph,
+  sectionType: string,
+  dependencies: Dependencies,
+): LiquidModule {
+  const path = dependencies.join('sections', `${sectionType}.liquid`);
   if (themeGraph.modules[path]) {
     return themeGraph.modules[path] as LiquidModule;
   }
@@ -192,8 +208,12 @@ export function sectionModule(themeGraph: ThemeGraph, sectionType: string): Liqu
   };
 }
 
-export function sectionGroupModule(themeGraph: ThemeGraph, sectionGroupType: string): JsonModule {
-  const path = join('sections', `${sectionGroupType}.json`);
+export function sectionGroupModule(
+  themeGraph: ThemeGraph,
+  sectionGroupType: string,
+  dependencies: Dependencies,
+): JsonModule {
+  const path = dependencies.join('sections', `${sectionGroupType}.json`);
   if (themeGraph.modules[path]) {
     return themeGraph.modules[path] as JsonModule;
   }
@@ -210,12 +230,13 @@ export function sectionGroupModule(themeGraph: ThemeGraph, sectionGroupType: str
 export function assetModule(
   themeGraph: ThemeGraph,
   asset: string,
+  dependencies: Dependencies,
 ): JavaScriptModule | CssModule | undefined {
-  return undefined;
-  const extension = extname(asset).slice(1);
+  // return undefined;
+  const extension = dependencies.extname(asset).slice(1);
   switch (extension) {
     case 'js': {
-      const path = join('assets', asset);
+      const path = dependencies.join('assets', asset);
       if (themeGraph.modules[path]) {
         return themeGraph.modules[path] as JavaScriptModule;
       }
@@ -230,7 +251,7 @@ export function assetModule(
     }
 
     case 'css': {
-      const path = join('assets', asset);
+      const path = dependencies.join('assets', asset);
       if (themeGraph.modules[path]) {
         return themeGraph.modules[path] as CssModule;
       }
@@ -250,8 +271,12 @@ export function assetModule(
   }
 }
 
-export function snippetModule(themeGraph: ThemeGraph, snippet: string): LiquidModule {
-  const relativePath = join('snippets', `${snippet}.liquid`);
+export function snippetModule(
+  themeGraph: ThemeGraph,
+  snippet: string,
+  dependencies: Dependencies,
+): LiquidModule {
+  const relativePath = dependencies.join('snippets', `${snippet}.liquid`);
   if (themeGraph.modules[relativePath]) {
     return themeGraph.modules[relativePath] as LiquidModule;
   }
@@ -264,8 +289,12 @@ export function snippetModule(themeGraph: ThemeGraph, snippet: string): LiquidMo
   };
 }
 
-export function layoutModule(themeGraph: ThemeGraph, layoutName: string = 'theme'): LiquidModule {
-  const relativePath = join('layout', `${layoutName}.liquid`);
+export function layoutModule(
+  themeGraph: ThemeGraph,
+  layoutName: string = 'theme',
+  dependencies: Dependencies,
+): LiquidModule {
+  const relativePath = dependencies.join('layout', `${layoutName}.liquid`);
   if (themeGraph.modules[relativePath]) {
     return themeGraph.modules[relativePath] as LiquidModule;
   }
@@ -281,7 +310,11 @@ export function layoutModule(themeGraph: ThemeGraph, layoutName: string = 'theme
 
 export type Void = void | Void[];
 
-async function traverseModule(module: ThemeModule, themeGraph: ThemeGraph): Promise<Void> {
+async function traverseModule(
+  module: ThemeModule,
+  themeGraph: ThemeGraph,
+  dependencies: Dependencies,
+): Promise<Void> {
   if (themeGraph.modules[module.path]) {
     return;
   }
@@ -290,11 +323,11 @@ async function traverseModule(module: ThemeModule, themeGraph: ThemeGraph): Prom
 
   switch (module.type) {
     case ModuleType.Liquid: {
-      return traverseLiquidModule(module, themeGraph);
+      return traverseLiquidModule(module, themeGraph, dependencies);
     }
 
     case ModuleType.Json: {
-      return traverseJsonModule(module, themeGraph);
+      return traverseJsonModule(module, themeGraph, dependencies);
     }
 
     case ModuleType.JavaScript: {
@@ -311,9 +344,13 @@ async function traverseModule(module: ThemeModule, themeGraph: ThemeGraph): Prom
   }
 }
 
-async function traverseJsonModule(module: JsonModule, themeGraph: ThemeGraph): Promise<Void> {
-  const absolutePath = join(themeGraph.root, module.path);
-  const json = await fs.readFile(absolutePath, 'utf8').then((content) => JSON.parse(content));
+async function traverseJsonModule(
+  module: JsonModule,
+  themeGraph: ThemeGraph,
+  dependencies: Dependencies,
+): Promise<Void> {
+  const absolutePath = dependencies.join(themeGraph.root, module.path);
+  const json = await dependencies.readFile(absolutePath).then((content) => JSON.parse(content));
   switch (module.kind) {
     case JsonModuleKind.Template: {
       const sections = Object.values(json.sections ?? {});
@@ -321,16 +358,18 @@ async function traverseJsonModule(module: JsonModule, themeGraph: ThemeGraph): P
         sections.map((section: any) => section?.type).filter(isString),
       );
       const sectionModules = sectionTypes.map((sectionType) =>
-        sectionModule(themeGraph, sectionType),
+        sectionModule(themeGraph, sectionType, dependencies),
       );
-      const layout = layoutModule(themeGraph, json.layout);
+      const layout = layoutModule(themeGraph, json.layout, dependencies);
       const childModules = [layout, ...sectionModules];
 
       for (const child of childModules) {
         bind(module, child);
       }
 
-      return Promise.all(childModules.map((section) => traverseModule(section, themeGraph)));
+      return Promise.all(
+        childModules.map((section) => traverseModule(section, themeGraph, dependencies)),
+      );
     }
 
     case JsonModuleKind.SectionGroup: {
@@ -339,14 +378,16 @@ async function traverseJsonModule(module: JsonModule, themeGraph: ThemeGraph): P
         sections.map((section: any) => section?.type).filter(isString),
       );
       const childModules = sectionTypes.map((sectionType) =>
-        sectionModule(themeGraph, sectionType),
+        sectionModule(themeGraph, sectionType, dependencies),
       );
 
       for (const child of childModules) {
         bind(module, child);
       }
 
-      return Promise.all(childModules.map((section) => traverseModule(section, themeGraph)));
+      return Promise.all(
+        childModules.map((section) => traverseModule(section, themeGraph, dependencies)),
+      );
     }
 
     default: {
@@ -355,9 +396,13 @@ async function traverseJsonModule(module: JsonModule, themeGraph: ThemeGraph): P
   }
 }
 
-async function traverseLiquidModule(module: LiquidModule, themeGraph: ThemeGraph) {
-  const absolutePath = join(themeGraph.root, module.path);
-  const content = await fs.readFile(absolutePath, 'utf8');
+async function traverseLiquidModule(
+  module: LiquidModule,
+  themeGraph: ThemeGraph,
+  dependencies: Dependencies,
+) {
+  const absolutePath = dependencies.join(themeGraph.root, module.path);
+  const content = await dependencies.readFile(absolutePath);
   const ast = parseLiquid(content, { allowUnclosedDocumentNode: true, mode: 'tolerant' });
   const visitor: Visitor<SourceCodeType.LiquidHtml, ThemeModule> = {
     LiquidFilter: (node, ancestors) => {
@@ -367,14 +412,14 @@ async function traverseLiquidModule(module: LiquidModule, themeGraph: ThemeGraph
         if (parentNode.expression.type !== NodeTypes.String) return;
         if (parentNode.filters[0] !== node) return;
         const asset = parentNode.expression.value;
-        return assetModule(themeGraph, asset);
+        return assetModule(themeGraph, asset, dependencies);
       }
     },
 
     RenderMarkup: (node) => {
       const snippet = node.snippet;
       if (!isString(snippet) && snippet.type === NodeTypes.String) {
-        return snippetModule(themeGraph, snippet.value);
+        return snippetModule(themeGraph, snippet.value, dependencies);
       }
     },
 
@@ -383,13 +428,13 @@ async function traverseLiquidModule(module: LiquidModule, themeGraph: ThemeGraph
         case NamedTags.sections: {
           if (!isString(node.markup)) {
             const sectionGroupType = node.markup.value;
-            return sectionGroupModule(themeGraph, sectionGroupType);
+            return sectionGroupModule(themeGraph, sectionGroupType, dependencies);
           }
         }
         case NamedTags.section: {
           if (!isString(node.markup)) {
             const sectionType = node.markup.value;
-            return sectionModule(themeGraph, sectionType);
+            return sectionModule(themeGraph, sectionType, dependencies);
           }
         }
       }
@@ -402,7 +447,7 @@ async function traverseLiquidModule(module: LiquidModule, themeGraph: ThemeGraph
     bind(module, childModule);
   }
 
-  return Promise.all(modules.map((mod) => traverseModule(mod, themeGraph)));
+  return Promise.all(modules.map((mod) => traverseModule(mod, themeGraph, dependencies)));
 
   // switch (module.kind) {
   //   case LiquidModuleKind.Layout: {
